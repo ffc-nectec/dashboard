@@ -27,7 +27,7 @@ class DashboardAnalytics extends React.Component {
   componentDidMount() {
 
     // ชื่อกับ id
-    fetch(`http://localhost:7000/report/convert`)
+    fetch(`https://report-api.ffc.in.th/report/convert`)
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -36,7 +36,7 @@ class DashboardAnalytics extends React.Component {
       })
 
     // กราฟ ปิรามิด
-    fetch(`http://localhost:7000/report/pyramid`)
+    fetch(`https://report-api.ffc.in.th/report/pyramid`)
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -80,7 +80,7 @@ class DashboardAnalytics extends React.Component {
     if (organization !== undefined) {
       const idOption = organization.id
       console.log(idOption, 'ooooo');
-      fetch(`http://localhost:7000/report/pyramid/${idOption}`)
+      fetch(`https://report-api.ffc.in.th/report/pyramid/${idOption}`)
         .then(res => res.json())
         .then(json => {
           this.setState({
@@ -372,7 +372,6 @@ class DashboardAnalytics extends React.Component {
                         </div>
                         <div className="font-weight-bold font-size-18 text-dark">{pyramid01.female.toLocaleString()}</div>
                       </div>
-                      {/* {(pyramid01.total !== 0) && ( */}
                       <div className="mr-5 mb-2">
                         <div className="text-nowrap text-uppercase text-gray-4">
                           <div className="air__utils__donut air__utils__donut--success" />
@@ -380,8 +379,6 @@ class DashboardAnalytics extends React.Component {
                         </div>
                         <div className="font-weight-bold font-size-18 text-dark">{pyramid01.total.toLocaleString()}</div>
                       </div>
-                      {/* ) */}
-                      {/* } */}
                       <div className="mr-5 mb-2">
                         <div className="text-nowrap text-uppercase text-gray-4">
                           <div className="air__utils__donut air__utils__donut" style={{ borderColor: '#ffff99' }} />
