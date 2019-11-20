@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/FFC-REPORT/static/css/main.d24d6573.chunk.css",
+    "main.js": "/FFC-REPORT/static/js/main.7153eb2b.chunk.js",
+    "main.js.map": "/FFC-REPORT/static/js/main.7153eb2b.chunk.js.map",
+    "runtime~main.js": "/FFC-REPORT/static/js/runtime~main.7104279f.js",
+    "runtime~main.js.map": "/FFC-REPORT/static/js/runtime~main.7104279f.js.map",
+    "static/css/2.e875816a.chunk.css": "/FFC-REPORT/static/css/2.e875816a.chunk.css",
+    "static/js/2.25434359.chunk.js": "/FFC-REPORT/static/js/2.25434359.chunk.js",
+    "static/js/2.25434359.chunk.js.map": "/FFC-REPORT/static/js/2.25434359.chunk.js.map",
+    "static/css/3.ccf57ec0.chunk.css": "/FFC-REPORT/static/css/3.ccf57ec0.chunk.css",
+    "static/js/3.b6a35b3c.chunk.js": "/FFC-REPORT/static/js/3.b6a35b3c.chunk.js",
+    "static/js/3.b6a35b3c.chunk.js.map": "/FFC-REPORT/static/js/3.b6a35b3c.chunk.js.map",
+    "static/js/4.5945eab7.chunk.js": "/FFC-REPORT/static/js/4.5945eab7.chunk.js",
+    "static/js/4.5945eab7.chunk.js.map": "/FFC-REPORT/static/js/4.5945eab7.chunk.js.map",
+    "index.html": "/FFC-REPORT/index.html",
+    "precache-manifest.9918bea7bc37b4be218c2c7f5d4b716e.js": "/FFC-REPORT/precache-manifest.9918bea7bc37b4be218c2c7f5d4b716e.js",
+    "service-worker.js": "/FFC-REPORT/service-worker.js",
+    "static/css/2.e875816a.chunk.css.map": "/FFC-REPORT/static/css/2.e875816a.chunk.css.map",
+    "static/css/3.ccf57ec0.chunk.css.map": "/FFC-REPORT/static/css/3.ccf57ec0.chunk.css.map",
+    "static/css/main.d24d6573.chunk.css.map": "/FFC-REPORT/static/css/main.d24d6573.chunk.css.map"
+  }
+}
