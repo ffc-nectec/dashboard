@@ -1,7 +1,5 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-// import Chart6 from 'components/widgets/Charts/6'
-// import Chart4 from 'components/widgets/Charts/4'
 import moment from 'moment-timezone'
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
@@ -141,7 +139,7 @@ class DashboardAnalytics extends React.Component {
     function Complete() {
       return (
         <AutoComplete
-          style={{ width: 400, Color: '#000' }}
+          style={{ width: 350, Color: '#000' }}
           onChange={submit}
           dataSource={name}
           defaultValue={hospital}
@@ -352,8 +350,6 @@ class DashboardAnalytics extends React.Component {
               </div>
               <div className="col-xl-12">
                 <br />
-                <br />
-                <br />
                 <div className="card">
                   <div className="card-body">
                     <HighchartsReact highcharts={Highcharts} options={optionspyramid} loading={isLoaded} style={{ width: "100%", height: "400px" }} />
@@ -404,7 +400,7 @@ class DashboardAnalytics extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-5 col-lg-5">
+                <div className="col-xl-6 col-lg-6">
                   <div className="card">
                     <div className="card-body">
                       <HighchartsReact highcharts={Highcharts} options={pieChartelderly} style={{ width: "100%", height: "400px" }} />

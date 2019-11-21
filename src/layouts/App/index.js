@@ -3,7 +3,7 @@ import { Layout } from 'antd'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import classNames from 'classnames'
-import TopBar from 'components/layout/TopBar'
+// import TopBar from 'components/layout/TopBar'
 // import SubBar from 'components/layout/SubBar'
 // import MenuLeft from 'components/layout/MenuLeft'
 import MenuTop from 'components/layout/MenuTop'
@@ -54,7 +54,7 @@ class AppLayout extends React.PureComponent {
               air__layout__headerGray: isGrayTopbar,
             })}
           >
-            <TopBar />
+            {/* <TopBar /> */}
             {/* <SubBar /> */}
           </Layout.Header>
           <Layout.Content style={{ height: '100%', position: 'relative' }}>
