@@ -143,8 +143,9 @@ class DashboardAnalytics extends React.Component {
     return (
       <div>
         {isLoaded}
-        <Helmet title="Dashboard: Analytics" />
+        <Helmet title="Dashboard" />
         <div>
+          <br /><br />
           <Complete />&nbsp; &nbsp; &nbsp;
           <Button type="button" onClick={refreshPage}> <span>หน่วยงานทั้งหมด</span> </Button>
         </div>

@@ -306,7 +306,7 @@ class MenuTop extends React.Component {
             >
               <span />
             </a>
-            <a href="https://www.ffc.in.th/" className={style.air__menuTop__logo}>
+            <a href="javascript: void(0);" className={style.air__menuTop__logo}>
               <img src="resources/images/LOGO_Color.png" alt="..." style={{ width: 82, height: 82 }} />
             </a>
             <div id="menu-left-container" className={style.air__menuTop__container}>
