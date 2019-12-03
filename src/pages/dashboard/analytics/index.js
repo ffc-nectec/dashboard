@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import Population from 'components/widgets/Charts/population'
 import { AutoComplete, Button, Icon, Input } from 'antd';
 import ADL from 'components/widgets/Charts/ADL';
-import Chart3 from 'components/widgets/Charts/3';
+import Chronicpiechart from 'components/widgets/Charts/chronicpiechart';
 import General2 from 'components/widgets/General/2'
 
 class DashboardAnalytics extends React.Component {
@@ -172,7 +172,7 @@ class DashboardAnalytics extends React.Component {
           <div className="col-xl-6">
             <div className="card">
               <div className="card-body">
-                <Chart3 chronic={chronic} submit={submit} namehospital={hospital} />
+                <Chronicpiechart chronic={chronic} submit={submit} namehospital={hospital} />
               </div>
             </div>
           </div>

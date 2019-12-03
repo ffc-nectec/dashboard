@@ -6,7 +6,7 @@ import { Table, Collapse } from 'antd';
 
 const { Panel } = Collapse;
 
-class Chart3 extends React.Component {
+class Chronicpiechart extends React.Component {
 
     render() {
         const {chronic, submit, namehospital } = this.props
@@ -99,4 +99,4 @@ class Chart3 extends React.Component {
     }
 }
 
-export default Chart3
+export default Chronicpiechart
