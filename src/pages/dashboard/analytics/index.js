@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import Population from 'components/widgets/Charts/population'
 import { AutoComplete, Button, Icon, Input } from 'antd';
-import Chart2 from 'components/widgets/Charts/2';
+import ADL from 'components/widgets/Charts/ADL';
 import Chart3 from 'components/widgets/Charts/3';
 import General2 from 'components/widgets/General/2'
 
@@ -179,7 +179,7 @@ class DashboardAnalytics extends React.Component {
           <div className="col-xl-6">
             <div className="card">
               <div className="card-body">
-                <Chart2 user={user} submit={submit} namehospital={hospital} />
+                <ADL user={user} submit={submit} namehospital={hospital} />
               </div>
             </div>
           </div>

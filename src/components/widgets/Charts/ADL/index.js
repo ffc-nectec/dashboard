@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
-class Chart2 extends React.Component {
+class ADL extends React.Component {
   render() {
     const { user, submit, namehospital } = this.props;
     const active = user.byActive;
@@ -57,7 +57,6 @@ class Chart2 extends React.Component {
       }
       return (
         <div>
-          {/* {(pieChartelderly !== 0) && ()} */}
           <HighchartsReact highcharts={Highcharts} options={pieChartelderly} onChange={submit} style={{ width: "100%", height: "400px" }} />
           <div className="d-flex flex-wrap">
             <div className="mr-4 mb-2">
@@ -81,13 +80,6 @@ class Chart2 extends React.Component {
               </div>
               <div className="font-weight-bold font-size-18 text-dark">{user.VERYHI.toLocaleString()}</div>
             </div>
-            {/* <div className="mr-4 mb-2">
-              <div className="text-nowrap text-uppercase text-gray-4">
-                <div className="air__utils__donut air__utils__donut" style={{ borderColor: '#333333' }} />
-                ไม่ระบุ
-              </div>
-              <div className="font-weight-bold font-size-18 text-dark">{user.UNKNOWN.toLocaleString()}</div>
-            </div> */}
           </div>
         </div>
       )
@@ -100,4 +92,4 @@ class Chart2 extends React.Component {
   }
 }
 
-export default Chart2
+export default ADL
