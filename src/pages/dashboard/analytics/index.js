@@ -4,7 +4,7 @@ import Population from 'components/widgets/Charts/population'
 import { AutoComplete, Button, Icon, Input } from 'antd';
 import ADL from 'components/widgets/Charts/ADL';
 import Chronicpiechart from 'components/widgets/Charts/chronicpiechart';
-import General2 from 'components/widgets/General/2'
+import Departments from 'components/widgets/Charts/department'
 
 class DashboardAnalytics extends React.Component {
   constructor(props) {
@@ -163,7 +163,7 @@ class DashboardAnalytics extends React.Component {
           <div className="col-xl-4 col-lg-12">
             <div className="card">
               <div className="card-body">
-                <General2 length={peplelength} />
+                <Departments length={peplelength} />
               </div>
             </div>
           </div>
