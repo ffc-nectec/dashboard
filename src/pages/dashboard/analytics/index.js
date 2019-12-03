@@ -1,6 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import Chart1 from 'components/widgets/Charts/1'
+import Population from 'components/widgets/Charts/population'
 import { AutoComplete, Button, Icon, Input } from 'antd';
 import Chart2 from 'components/widgets/Charts/2';
 import Chart3 from 'components/widgets/Charts/3';
@@ -154,7 +154,7 @@ class DashboardAnalytics extends React.Component {
           <div className="col-xl-12">
             <div className="card">
               <div className="card-body">
-                <Chart1 submit={submit} pyramid01={pyramid01} namehospital={hospital} />
+                <Population submit={submit} pyramid01={pyramid01} namehospital={hospital} />
               </div>
             </div>
           </div>

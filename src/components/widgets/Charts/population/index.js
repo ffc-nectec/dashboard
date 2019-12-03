@@ -5,7 +5,7 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 
-class Chart1 extends React.Component {
+class Population extends React.Component {
 
   render() {
     const { submit, pyramid01, namehospital } = this.props
@@ -138,43 +138,6 @@ class Chart1 extends React.Component {
               <div className="font-weight-bold font-size-18 text-dark">{date.format('DD MMMM YYYY HH:mm:ss')}</div>
             </div>
           </div>
-          {/* <div className="d-flex flex-wrap">
-            <div className="mr-5 mb-2">
-              <div className="text-nowrap text-uppercase text-gray-4">
-                <div className="air__utils__donut air__utils__donut" style={{ borderColor: '#008ffb' }} />
-                ชาย
-              </div>
-              <div className="font-weight-bold font-size-18 text-dark">{pyramid01.male.toLocaleString()}</div>
-            </div>
-            <div className="mr-5 mb-2">
-              <div className="text-nowrap text-uppercase text-gray-4">
-                <div className="air__utils__donut air__utils__donut--danger" />
-                หญิง
-              </div>
-              <div className="font-weight-bold font-size-18 text-dark">{pyramid01.female.toLocaleString()}</div>
-            </div>
-            <div className="mr-5 mb-2">
-              <div className="text-nowrap text-uppercase text-gray-4">
-                <div className="air__utils__donut air__utils__donut--success" />
-                ประชากรทั้งหมด
-              </div>
-              <div className="font-weight-bold font-size-18 text-dark">{pyramid01.total.toLocaleString()}</div>
-            </div>
-            <div className="mr-5 mb-2">
-              <div className="text-nowrap text-uppercase text-gray-4">
-                <div className="air__utils__donut air__utils__donut--success" />
-                ไม่ระบุ
-              </div>
-              <div className="font-weight-bold font-size-18 text-dark">{othor.toLocaleString()}</div>
-            </div>
-            <div className="mr-5 mb-2">
-              <div className="text-nowrap text-uppercase text-gray-4">
-                <div className="air__utils__donut air__utils__donut" style={{ borderColor: '#ffff99' }} />
-                รายงานเมื่อ
-              </div>
-              <div className="font-weight-bold font-size-18 text-dark">{date.format('DD MMMM YYYY HH:mm:ss')}</div>
-            </div>
-          </div> */}
         </div>
       )
     }
@@ -186,4 +149,4 @@ class Chart1 extends React.Component {
   }
 }
 
-export default Chart1
+export default Population
