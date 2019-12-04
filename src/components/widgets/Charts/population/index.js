@@ -40,7 +40,7 @@ class Population extends React.Component {
         },
         colors: ['#008FFB', '#FF4560'],
         title: {
-          text: namehospital !== '' ? `ปิรามิดประชากร</b></b></br><br/>${namehospital}` : 'ปิรามิดหน่วยงานทั้งหมด',
+          text: namehospital !== '' ? `พีระมิดประชากร</b></b></br><br/>${namehospital}` : 'พีระมิดประชากรทั้งหมด',
 
         },
         subtitle: {
