@@ -5,6 +5,7 @@ import { AutoComplete, Button, Icon, Input } from 'antd';
 import ADL from 'components/widgets/Charts/ADL';
 import Chronicpiechart from 'components/widgets/Charts/chronicpiechart';
 import Departments from 'components/widgets/Charts/department'
+import ADLsuccess from 'components/widgets/Charts/ADLsuccess';
 
 class DashboardAnalytics extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class DashboardAnalytics extends React.Component {
     this.state = {
       dataSource: [],
       pyramid01: [],
+      pyramid60up: [],
       chronic: [],
       user: [],
       hospital: '',
@@ -48,6 +50,23 @@ class DashboardAnalytics extends React.Component {
           });
         }
       )
+
+    fetch(`https://report-api.ffc.in.th/report/pyramid60up`)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          pyramid60up: json,
+          isLoaded: true,
+        });
+      },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+
     // pie อัตราส่วนผู้สูงอายุ
     fetch(`https://report-api.ffc.in.th/report/elderlyrat`)
       .then(res => res.json())
@@ -88,6 +107,16 @@ class DashboardAnalytics extends React.Component {
           console.log(json, '====');
         })
 
+        fetch(`https://report-api.ffc.in.th/report/pyramid60up/${idOption}?rnd=${rnd}`)
+        .then(res => res.json())
+        .then(json => {
+          this.setState({
+            pyramid60up: json,
+            hospital: value
+          });
+          console.log(json, '====');
+        })
+
       fetch(`https://report-api.ffc.in.th/report/elderlyrat/${idOption}?rnd=${rnd}`)
         .then(res => res.json())
         .then(json => {
@@ -109,7 +138,7 @@ class DashboardAnalytics extends React.Component {
   }
 
   render() {
-    const { dataSource, chronic, pyramid01, user, hospital, isLoaded, error } = this.state;
+    const { dataSource, chronic, pyramid01, pyramid60up, user, hospital, isLoaded, error } = this.state;
     const name = dataSource.map(object => object.name);
     const peplelength = name.length
     const submit = this.handleValidSubmit;
@@ -164,6 +193,13 @@ class DashboardAnalytics extends React.Component {
             <div className="card">
               <div className="card-body">
                 <Departments length={peplelength} />
+              </div>
+            </div>
+          </div>
+          <div className="col-xl-4 col-lg-6">
+            <div className="card">
+              <div className="card-body">
+                <ADLsuccess pyramid60up={pyramid60up} user={user} />
               </div>
             </div>
           </div>
