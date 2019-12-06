@@ -18,7 +18,9 @@ class ADLsuccess extends React.Component {
           <p className="text-uppercase text-dark font-weight-bold font-size-18 mb-1">ผู้สูงอายุที่ถูกประเมิน ADL แล้ว</p>
         </div>
         <p className={textClass}>{sumtotal.toFixed(2)} %</p>
-
+        {pyramid60up.total60up &&
+          <p>(ทั้งหมดจำนวน {pyramid60up.total60up.toLocaleString()} คน)</p>
+        }
       </div>
     )
   }
