@@ -21,6 +21,8 @@ class Chronicpiechart extends React.Component {
                 name: object.name,
                 y: object.y,
             }));
+
+            const chronicslice = chronicpiechart.slice(0,20)
             const columns = [
                 {
                     title: 'ชื่อ',
@@ -58,7 +60,7 @@ class Chronicpiechart extends React.Component {
                 colors: ['rgb(144, 237, 125)', 'rgb(247, 163, 92)', '#FF4560', '#333333', '#008FFB'],
                 title: {
                     // text: `ผู้ป่วยโรคเรื้อรัง</br></b><br/>${hospital}`
-                    text: namehospital !== '' ? `ผู้ป่วยโรคเรื้อรัง</b></br><br/>${namehospital}` : 'ผู้ป่วยโรคเรื้อรังทั้งหมด',
+                    text: namehospital !== '' ? `จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค</b></br><br/>${namehospital}` : 'จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค',
                 },
                 tooltip: {
                     pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -76,7 +78,7 @@ class Chronicpiechart extends React.Component {
                 series: [{
                     name: 'จำนวน',
                     colorByPoint: true,
-                    data: chronicpiechart
+                    data: chronicslice
                 }]
             }
            
@@ -84,7 +86,7 @@ class Chronicpiechart extends React.Component {
               <div>
                 <HighchartsReact highcharts={Highcharts} options={pieChartchronics} onChange={submit} style={{ width: "100%", height: "400px" }} />
                 <Collapse onChange={callback}>
-                  <Panel header="จำนวนผู้ป่วยโรคเรื้อรัง (กดดูรายละเอียด)" key="1">
+                  <Panel header="จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค(กดดูรายละเอียด)" key="1">
                     <Table dataSource={chronicpiechart} columns={columns} bordered />
                   </Panel>
                 </Collapse>

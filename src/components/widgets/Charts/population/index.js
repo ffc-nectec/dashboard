@@ -10,8 +10,6 @@ class Population extends React.Component {
   render() {
     const { submit, pyramid01, namehospital } = this.props
     const myArrStr = pyramid01.byAge;
-    console.log(myArrStr, 'lkjhgf');
-
 
     if (myArrStr !== undefined) {
       const age = myArrStr.map(item => { return item.age })

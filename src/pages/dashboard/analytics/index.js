@@ -1,12 +1,14 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import Population from 'components/widgets/Charts/population'
-import { AutoComplete, Button, Icon, Input } from 'antd';
+import { AutoComplete, Button, Icon, Input, Tabs } from 'antd';
 import ADL from 'components/widgets/Charts/ADL';
 import Chronicpiechart from 'components/widgets/Charts/chronicpiechart';
+import Chronicpiechartdrilldown from 'components/widgets/Charts/chronicpiechartdrilldown';
 import Departments from 'components/widgets/Charts/department'
 import ADLsuccess from 'components/widgets/Charts/ADLsuccess';
 
+const { TabPane } = Tabs
 class DashboardAnalytics extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,7 @@ class DashboardAnalytics extends React.Component {
       pyramid01: [],
       pyramid60up: [],
       chronic: [],
+      chronicdilldown: [],
       user: [],
       hospital: '',
       isLoaded: false,
@@ -86,6 +89,21 @@ class DashboardAnalytics extends React.Component {
           isLoaded: true
         });
       })
+
+    fetch(`https://report-api.ffc.in.th/report/chronicdilldown`)
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          chronicdilldown: json,
+          isLoaded: true
+        });
+      },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        })
   }
 
   handleValidSubmit(value) {
@@ -95,7 +113,6 @@ class DashboardAnalytics extends React.Component {
     })
     if (organization !== undefined) {
       const idOption = organization.id
-      console.log(idOption, 'ooooo');
       const rnd = Math.floor(Math.random() * 1000);
       fetch(`https://report-api.ffc.in.th/report/pyramid/${idOption}?rnd=${rnd}`)
         .then(res => res.json())
@@ -104,17 +121,15 @@ class DashboardAnalytics extends React.Component {
             pyramid01: json,
             hospital: value
           });
-          console.log(json, '====');
         })
 
-        fetch(`https://report-api.ffc.in.th/report/pyramid60up/${idOption}?rnd=${rnd}`)
+      fetch(`https://report-api.ffc.in.th/report/pyramid60up/${idOption}?rnd=${rnd}`)
         .then(res => res.json())
         .then(json => {
           this.setState({
             pyramid60up: json,
             hospital: value
           });
-          console.log(json, '====');
         })
 
       fetch(`https://report-api.ffc.in.th/report/elderlyrat/${idOption}?rnd=${rnd}`)
@@ -134,11 +149,20 @@ class DashboardAnalytics extends React.Component {
             hospital: value
           });
         })
+
+      fetch(`https://report-api.ffc.in.th/report/chronicdilldown/${idOption}?rnd=${rnd}`)
+        .then(res => res.json())
+        .then(json => {
+          this.setState({
+            chronicdilldown: json,
+            hospital: value
+          });
+        })
     }
   }
 
   render() {
-    const { dataSource, chronic, pyramid01, pyramid60up, user, hospital, isLoaded, error } = this.state;
+    const { dataSource, chronic, chronicdilldown, pyramid01, pyramid60up, user, hospital, isLoaded, error } = this.state;
     const name = dataSource.map(object => object.name);
     const peplelength = name.length
     const submit = this.handleValidSubmit;
@@ -174,11 +198,13 @@ class DashboardAnalytics extends React.Component {
         {isLoaded}
         <Helmet title="Dashboard" />
         <div>
-          <br /><br />
+          <br />
           <Complete />&nbsp; &nbsp; &nbsp;
           <Button type="button" onClick={refreshPage}> <span>หน่วยงานทั้งหมด</span> </Button>
         </div>
-        <br /><br /><br />
+        <br /><br />
+        <p style={{ color: '#ff8080' }}>*** รายงานข้อมูลชุมชน จะปรับปรุงทุกๆ 6 ชั่วโมง ***</p>
+        <br />
         <div className="row">
           <div className="col-xl-12">
             <div className="card">
@@ -205,6 +231,30 @@ class DashboardAnalytics extends React.Component {
           </div>
         </div>
         <div className="row">
+          <div className="col-xl-12 col-lg-12">
+            <div className="card">
+              <Tabs className="air-tabs-bordered pt-2" defaultActiveKey="1">
+                <TabPane tab="จำนวนผู้ป่วยโรคเรื้อรังแยกตามกลุ่มโรค" key="1">
+                  <Chronicpiechartdrilldown namehospital={hospital} chronicdilldown={chronicdilldown} submit={submit} />
+                </TabPane>
+                <TabPane tab="จำนวนผู้ป่วยโรคเรื้อรังแยกตามรายโรค" key="2">
+                  <Chronicpiechart namehospital={hospital} chronic={chronic} submit={submit} />
+                </TabPane>
+              </Tabs>
+              <br />
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xl-6">
+            <div className="card">
+              <div className="card-body">
+                <ADL submit={submit} user={user} namehospital={hospital} />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <div className="row">
           <div className="col-xl-6">
             <div className="card">
               <div className="card-body">
@@ -219,7 +269,7 @@ class DashboardAnalytics extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }
