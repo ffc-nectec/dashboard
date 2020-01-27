@@ -106,6 +106,9 @@ class Chart4 extends React.Component {
         const optionspyramid = {
           chart: {
             type: 'pie',
+            style: {
+                fontFamily: "'Kanit', sans-serif"
+            },
             events: {
               // drillup:() =>{
               click: (e) => {
