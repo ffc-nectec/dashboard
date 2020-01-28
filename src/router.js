@@ -20,7 +20,7 @@ const loadable = loader =>
   const trackingId = "UA-156975553-1"; // Replace with your Google Analytics tracking ID
   ReactGa.initialize(trackingId);
 
-  ReactGa.pageview('/dashboard/analytics')
+  ReactGa.pageview('/')
  
 
 const routes = [
