@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import Layout from 'layouts'
 import Loader from 'components/layout/Loader'
 import NotFoundPage from 'pages/system/404'
+import ReactGa from 'react-ga';
 
 const loadable = loader =>
   Loadable({
@@ -15,6 +16,12 @@ const loadable = loader =>
     delay: false,
     loading: () => <Loader />,
   })
+
+  const trackingId = "UA-156975553-1"; // Replace with your Google Analytics tracking ID
+  ReactGa.initialize(trackingId);
+
+  ReactGa.pageview('/dashboard/analytics')
+ 
 
 const routes = [
   // Dashboards
